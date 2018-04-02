@@ -9,25 +9,6 @@ module.exports = (option) => {
 
     if (process.env.NODE_ENV != 'production') {
 
-        const SSRBuilder = tryRequire("flow-build");
-        if (!SSRBuilder) {
-            console.log("Please npm install --save-dev flow-build");
-            throw new Error(
-                '[flow-proxy-middleware] SSRBuilder: true requires flow-build ' +
-                  'as a peer dependency.'
-            );
-            return false;
-        }
-
-        let flowConfig = tryRequire(path.resolve(process.cwd(),'./flow.config.js'));
-
-        if (!flowConfig) {
-            throw new Error(
-                '[flow-proxy-middleware] proxy: true requires flow.config.js'
-            );
-            return false;
-        }
-
         let httpProxyMiddleware = tryRequire("http-proxy-middleware");
         if (!httpProxyMiddleware) {
             console.log("Please npm install --save-dev http-proxy-middleware");
@@ -39,7 +20,7 @@ module.exports = (option) => {
         }
 
         return async function(req, res, next) {
-            let result = await main(req, res, httpProxyMiddleware, flowConfig.dev.proxy);
+            let result = await main(req, res, httpProxyMiddleware, options);
             if (result) {
                 next();
             }
