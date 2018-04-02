@@ -1,0 +1,33 @@
+{
+  "name": "flow-proxy-middleware",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ysk2014/node-flow-proxy-middleware.git"
+  },
+  "keywords": [
+    "http-proxy-middleware",
+    "flow-build",
+    "express",
+    "webpack"
+  ],
+  "author": {
+    "name": "claus",
+    "url": "https://github.com/ysk2014"
+  },
+  "bugs": {
+    "url": "https://github.com/ysk2014/node-flow-proxy-middleware/issues"
+  },
+  "homepage": "https://github.com/ysk2014/node-flow-proxy-middleware#readme",
+  "license": "ISC",
+  "dependencies": {
+    "is-glob": "^4.0.0",
+    "lodash": "^4.17.5",
+    "micromatch": "^3.1.10"
+  }
+}
