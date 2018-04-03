@@ -20,9 +20,12 @@ module.exports = (option) => {
         }
 
         return async function(req, res, next) {
-            let result = await main(req, res, httpProxyMiddleware, options);
-            if (result) {
+            let result;
+            try {
+                let result = await main(req, res, httpProxyMiddleware, options);
                 next();
+            } catch (error) {
+                
             }
         }
     } else {
